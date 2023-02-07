@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Tournaments
+{% endblock %}
+
+{% block content %}
+<h1><h1><a><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/ATP_Tour_logo.svg/1200px-ATP_Tour_logo.svg.png" alt="img" style="max-width:82px;max-height:67px"></img></a> <i> TOURNAMENTS</i></h1></h1>
+<h5> <a href="/tournaments/add-tournament/" class="btn btn-link">Add tournament</a></h5>
+    <div class="row">
+    {% for tournament in tournaments %}
+
+    <div class="card" style="width: 18rem;">
+        
+        <div class="card-body">
+        <h5 class="card-title">{{tournament.name}}</h5>
+        <p class="card-text">Category: {{tournament.category}}</p>
+        </div>
+    </div>
+
+        
+
+
+
+    {% endfor %}
+
+{% endblock %}

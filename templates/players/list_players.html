@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Players
+{% endblock %}
+
+{% block content %}
+<h1><a><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/ATP_Tour_logo.svg/1200px-ATP_Tour_logo.svg.png" alt="img" style="max-width:82px;max-height:67px"></img></a> <i> PLAYERS</i></h1>
+<h5> <a href="/players/add-player/" class="btn btn-link">Add player</a></h5>
+    <div class="row">
+    {% for player in players %}
+
+    <div class="card bg-light mb-3" style="width: 17rem;">
+        
+        <div class="card-body">
+        <h5 class="card-title"><i>{{player.name}}</i></h5>
+        <p class="card-text"><i>{{player.country}}</i></p>
+        {% if player.is_active == True %}
+            <p><i>Active player</i></p>
+        {% else %}
+            <p><i>Retired player</i></p>
+        {% endif %}
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Details...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/players/player-bio/{{player.id}}/">Bio</a>
+              <a class="dropdown-item" href="/players/update-player/{{player.id}}/">Update player</a>
+            </div>
+            <a href="/players/delete-player/{{player.id}}/" class="btn btn-link">Delete player</a>
+          </div>
+          
+            
+
+        </div>
+    </div>
+
+   
+
+
+    {% endfor %}
+
+{% endblock %}

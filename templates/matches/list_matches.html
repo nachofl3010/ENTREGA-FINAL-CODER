@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Matches
+{% endblock %}
+
+{% block content %}
+<h1><h1><a><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/ATP_Tour_logo.svg/1200px-ATP_Tour_logo.svg.png" alt="img" style="max-width:82px;max-height:67px"></img></a> <i> MATCHES</i></h1></h1>
+<h5> <a href="/players/add-match/" class="btn btn-link">Add match</a></h5>
+<div class="row">
+{% for match in matches %}
+
+    <div class="card" style="width: 18rem;">
+        
+        <div class="card-body">
+        <h5 class="card-title">{{match.player_1}} vs {{match.player_2}}</h5>
+        {% if match.winner == 'Player 1' %}
+        <p class="card-text">Winner: {{match.player_1}}</p>
+        {% else %} 
+        <p class="card-text">Winner: {{match.player_2}}</p>
+        {% endif %}
+
+        {{match.year}}</p>
+        </div>
+    </div>
+
+        
+
+
+
+    {% endfor %}
+
+{% endblock %}
